@@ -22,6 +22,7 @@
     };
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+    auth.languageCode = 'ko';
     const db = firebase.firestore();
     const storage = firebase.storage();
   </script>
@@ -106,6 +107,7 @@
     <input type="email" id="email" placeholder="hyosuknam@gmail.com" value="hyosuknam@gmail.com">
     <input type="password" id="password" placeholder="비밀번호">
     <button onclick="login()">로그인</button>
+    <button onclick="resetPassword()" type="button">비밀번호 재설정</button>
   </div>
 
   <div id="editSection" class="edit-section">
@@ -201,8 +203,25 @@
         updateUserInfo(); 
         loadContent(); 
       } catch(err){ 
-        alert('로그인 실패: '+err.message); 
+        const message = err.code === 'auth/invalid-login-credentials'
+          ? '로그인 실패: 이메일 또는 비밀번호가 맞지 않습니다. 비밀번호 재설정을 사용해 보세요.'
+          : '로그인 실패: '+err.message;
+        alert(message);
       } 
+    }
+
+    async function resetPassword(){
+      const email=document.getElementById('email').value.trim();
+      if(!email){
+        alert('이메일을 입력한 뒤 비밀번호 재설정을 눌러 주세요.');
+        return;
+      }
+      try{
+        await auth.sendPasswordResetEmail(email);
+        alert('비밀번호 재설정 이메일을 보냈습니다. 메일함을 확인해 주세요.');
+      } catch(err){
+        alert('비밀번호 재설정 실패: '+err.message);
+      }
     }
 
     async function logout(){ 
