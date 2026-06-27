@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brainok's lab</title>
+  <title>BrainOK | Personal Research Lab</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Favicon / iOS icons (모두 루트(/)에 파일 배치) -->
@@ -12,131 +12,135 @@
   <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png" sizes="180x180">
-  <meta name="apple-mobile-web-app-title" content="Brainok's lab">
-  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-title" content="BrainOK">
+  <meta name="theme-color" content="#f5f6f8">
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap");
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      background: #f5f6f8;
+      letter-spacing: 0;
+    }
+
+    .page-link:focus-visible {
+      outline: 3px solid rgba(6, 182, 212, 0.45);
+      outline-offset: 3px;
+    }
+  </style>
 </head>
-<body class="relative min-h-screen">
-  <!-- 흐린 배경 이미지 -->
-  <div class="absolute inset-0 -z-10">
-    <img src="/background.jpg" alt="background" class="w-full h-full object-cover blur-[2px] brightness-90" />
-  </div>
-  <!-- 헤더 -->
-  <header class="py-6 relative z-10">
-    <div class="max-w-3xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 text-center md:text-left">
-      <span class="text-white text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-wide whitespace-nowrap leading-tight">Brainok's lab</span>
-      <img src="/brain.svg" alt="brain" class="w-[7.5rem] h-[7.5rem] sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain opacity-95" />
-    </div>
-  </header>
-  <!-- 메인 컨테이너 -->
-  <main class="max-w-5xl mx-auto px-4 py-10 relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-      <!-- Research 카드 -->
-      <section class="bg-white/60 rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8 flex flex-col w-full">
-        <h2 class="text-blue-900 text-2xl md:text-3xl font-extrabold mb-4 md:mb-6 flex items-center gap-3">
-          <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.5 6.5c-2.5 2-8.5 7.5-11 11m0 0A2.121 2.121 0 003.5 19.5c.5.5 1.5.5 2 0m1-2c2.5-2 8.5-7.5 11-11m0 0A2.121 2.121 0 0020.5 4.5c-.5-.5-1.5-.5-2 0"/></svg>
-          Research
-        </h2>
-        <ul class="space-y-4 md:space-y-5 mt-2">
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-blue-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToAbout()">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+<body class="min-h-screen text-slate-950 antialiased">
+  <main class="px-4 py-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl">
+      <header class="mb-8 bg-white px-5 py-5 shadow-sm sm:px-8">
+        <div class="flex items-center">
+          <a href="/index.html" class="page-link flex items-center gap-4 rounded-lg">
+            <span class="flex h-16 w-16 items-center justify-center rounded-lg bg-white">
+              <img src="/brain.svg" alt="BrainOK logo" class="h-14 w-14">
             </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">About</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-blue-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Research', 'BT')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100">
-              <svg class="w-7 h-7 md:w-8 md:w-8 text-blue-700" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4c-3.5 0-6 2.5-6 6 0 1.2.4 2.3 1.1 3.2C6.4 13.5 6 14.2 6 15c0 1.1.9 2 2 2h1v1c0 1.1.9 2 2 2s2-.9 2-2v-1h1c1.1 0 2-.9 2-2 0-.8-.4-1.5-1.1-1.8.7-.9 1.1-2 1.1-3.2 0-3.5-2.5-6-6-6z"/>
-              </svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">BT <span class="text-base md:text-lg text-blue-500 ml-2 font-semibold whitespace-nowrap">(Bio Technology)</span></span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-blue-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Research', 'IT')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="7.5" y="7.5" width="9" height="9" rx="2"/><path d="M9 3v2m6-2v2m6 6h-2m2 6h-2m-6 6v-2m-6-6H3m2 6v-2"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">IT <span class="text-base md:text-lg text-blue-500 ml-2 font-semibold whitespace-nowrap">(Information Technology)</span></span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-blue-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Research', 'Clinical')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 3v6a6 6 0 006 6v0a6 6 0 006-6V3m-6 15v2m0 0a2 2 0 104 0 2 2 0 10-4 0z"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Clinical Research</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-blue-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToPublication()">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 3h6l4 4v14a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 9h6M9 13h6M9 17h4"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Publication</span>
-          </li>
-        </ul>
+            <span class="text-3xl font-black text-black sm:text-4xl">Brainok</span>
+          </a>
+        </div>
+      </header>
+
+      <section class="mb-8 overflow-hidden bg-white shadow-sm">
+        <img src="/assets/lab-hero.png" alt="BrainOK lab homepage" class="h-auto w-full">
       </section>
-      <!-- Computer tip 카드 -->
-      <section class="bg-rose-200/40 rounded-2xl shadow-lg border border-rose-200/60 p-6 md:p-8 flex flex-col w-full">
-        <h2 class="text-blue-900 text-2xl md:text-3xl font-extrabold mb-4 md:mb-6 flex items-center gap-3">
-          <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h2a4 4 0 014 4v2"/></svg>
-          Computer tips
-        </h2>
-        <ul class="space-y-4 md:space-y-5 mt-2">
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-rose-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Computer tips', 'Excel')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="#bbf7d0" stroke="#22c55e"/><path stroke="#16a34a" stroke-width="1" d="M3 9h18M9 5v14"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Excel</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-rose-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Computer tips', 'Word')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" fill="#dbeafe" stroke="#2563eb"/><path stroke="#1d4ed8" stroke-width="1" d="M8 8h8M8 12h8M8 16h4"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Word</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-rose-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Computer tips', '아래한글')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-sky-200">
-              <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4" fill="#38bdf8"/><text x="12" y="17" text-anchor="middle" font-size="13" fill="white" font-family="Arial, sans-serif" font-weight="bold">H</text></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">아래한글</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-rose-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Computer tips', 'Statistics')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="12" width="3" height="6" rx="1" fill="#fde68a" stroke="#f59e42"/><rect x="10.5" y="8" width="3" height="10" rx="1" fill="#fdba74" stroke="#f59e42"/><rect x="17" y="4" width="3" height="14" rx="1" fill="#fca5a5" stroke="#f59e42"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Statistics</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-rose-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Computer tips', 'Education')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Education</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-rose-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Computer tips', 'Program')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-indigo-100">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Program</span>
-          </li>
-          <li class="flex items-center gap-4 px-5 md:px-6 py-3 md:py-4 hover:bg-rose-50/50 rounded-lg transition-colors cursor-pointer" onclick="goToBoard('Computer tips', 'Etc')">
-            <span class="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-200">
-              <svg class="w-7 h-7 md:w-8 md:h-8 text-gray-500" fill="currentColor" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
-            </span>
-            <span class="font-bold text-xl md:text-2xl text-blue-900">Etc</span>
-          </li>
-        </ul>
+
+      <section class="pb-8 text-center">
+        <h1 class="text-3xl font-black text-black sm:text-4xl">Research와 Computer Tips</h1>
+      </section>
+
+      <section id="board" class="grid gap-8 lg:grid-cols-2">
+        <article id="research" class="overflow-hidden bg-white shadow-sm">
+          <a href="#research-links" class="page-link block">
+            <img src="/assets/research-bg.png" alt="Research" class="aspect-[16/9] w-full object-cover">
+          </a>
+          <div id="research-links" class="p-5 sm:p-6">
+            <div class="grid gap-4">
+              <a href="/about.html" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-sky-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Profile</span>
+                <span class="mt-2 block text-2xl font-black text-black">About</span>
+              </a>
+
+              <a href="/publication.html" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-sky-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Publications</span>
+                <span class="mt-2 block text-2xl font-black text-black">Publication</span>
+              </a>
+
+              <div class="grid gap-4 sm:grid-cols-3">
+                <a href="/board.html?group=Research&item=BT" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-sky-500 hover:bg-white">
+                  <span class="text-xs font-black uppercase text-slate-500">Board</span>
+                  <span class="mt-2 block text-xl font-black text-black">BT</span>
+                  <span class="mt-1 block text-sm font-semibold text-slate-600">Bio Technology</span>
+                </a>
+
+                <a href="/board.html?group=Research&item=IT" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-sky-500 hover:bg-white">
+                  <span class="text-xs font-black uppercase text-slate-500">Board</span>
+                  <span class="mt-2 block text-xl font-black text-black">IT</span>
+                  <span class="mt-1 block text-sm font-semibold text-slate-600">Information Technology</span>
+                </a>
+
+                <a href="/board.html?group=Research&item=Clinical" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-sky-500 hover:bg-white">
+                  <span class="text-xs font-black uppercase text-slate-500">Board</span>
+                  <span class="mt-2 block text-xl font-black text-black">Clinical</span>
+                  <span class="mt-1 block text-sm font-semibold text-slate-600">Research</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="computer-tips" class="overflow-hidden bg-white shadow-sm">
+          <a href="#computer-links" class="page-link block">
+            <img src="/assets/computer-bg.png" alt="Computer tips" class="aspect-[16/9] w-full object-cover">
+          </a>
+          <div id="computer-links" class="p-5 sm:p-6">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="/board.html?group=Computer%20tips&item=Excel" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-orange-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Computer Tips</span>
+                <span class="mt-2 block text-2xl font-black text-black">Excel</span>
+              </a>
+
+              <a href="/board.html?group=Computer%20tips&item=Word" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-orange-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Computer Tips</span>
+                <span class="mt-2 block text-2xl font-black text-black">Word</span>
+              </a>
+
+              <a href="/board.html?group=Computer%20tips&item=%EC%95%84%EB%9E%98%ED%95%9C%EA%B8%80" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-orange-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Computer Tips</span>
+                <span class="mt-2 block text-2xl font-black text-black">아래한글</span>
+              </a>
+
+              <a href="/board.html?group=Computer%20tips&item=Statistics" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-orange-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Computer Tips</span>
+                <span class="mt-2 block text-2xl font-black text-black">Statistics</span>
+              </a>
+
+              <a href="/board.html?group=Computer%20tips&item=Education" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-orange-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Computer Tips</span>
+                <span class="mt-2 block text-2xl font-black text-black">Education</span>
+              </a>
+
+              <a href="/board.html?group=Computer%20tips&item=Program" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-orange-500 hover:bg-white">
+                <span class="text-xs font-black uppercase text-slate-500">Computer Tips</span>
+                <span class="mt-2 block text-2xl font-black text-black">Program</span>
+              </a>
+
+              <a href="/board.html?group=Computer%20tips&item=Etc" class="page-link border border-slate-200 bg-slate-50 p-5 transition hover:border-orange-500 hover:bg-white sm:col-span-2">
+                <span class="text-xs font-black uppercase text-slate-500">Computer Tips</span>
+                <span class="mt-2 block text-2xl font-black text-black">Etc</span>
+              </a>
+            </div>
+          </div>
+        </article>
       </section>
     </div>
   </main>
-
-  <script>
-    function goToBoard(group, item) {
-      window.location.href = `/board.html?group=${encodeURIComponent(group)}&item=${encodeURIComponent(item)}`;
-    }
-    
-    function goToAbout() {
-      window.location.href = '/about.html';
-    }
-    
-    function goToPublication() {
-      window.location.href = '/publication.html';
-    }
-  </script>
 </body>
 </html>
