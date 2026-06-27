@@ -1,0 +1,12 @@
+[
+  {
+    "origin": [
+      "https://brainok.netlify.app",
+      "http://localhost",
+      "http://127.0.0.1:5500"
+    ],
+    "method": ["GET", "POST", "PUT", "HEAD"],
+    "responseHeader": ["Content-Type"],
+    "maxAgeSeconds": 3600
+  }
+]
